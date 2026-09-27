@@ -1,6 +1,6 @@
-# Nokia FPGA Hackathon Submission
+# Nokia FPGA Hackathon 2026 Submission
 
-This repository is my submission for the **Nokia FPGA Hackathon**.
+This repository is my submission for the **Nokia FPGA Hackathon 2026**.
 
 It contains my HDL solutions to the hackathon tasks, targeting the AMD/Xilinx Kria K26 (`xck26-sfvc784-2LV-c`), along with the testbenches and Vivado project files used to build and verify them.
 
