@@ -1,0 +1,10 @@
+echo "Setting up work directory"
+vlib work
+
+vlog -quiet -f top_test_filelist.f hvl_top.sv hdl_top.sv
+
+echo "Optimisation step"
+qopt -quiet -64 -o top_opt hdl_top hvl_top -debug -designfile design.bin
+
+echo "Running test"
+qsim -64 -l questa.log -quiet -batch -permit_unmatched_virtual_intf -pli $AVERY_PLI/linux_x86_64/lib/libtb_ms.so top_opt +nowarnTSCALE -t 1ps -do "run -all; quit" +UVM_TESTNAME=top_test_base +SEQ=top_fir_vseq

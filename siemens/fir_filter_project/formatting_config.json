@@ -1,0 +1,93 @@
+{
+  "verilogFormattingSettings": {
+    "indentationSettings": {
+      "enableIndentation": true,
+      "indentationStyle": "Spaces",
+      "spacesPerIndent": 4,
+      "allowFor": [
+        "Module Declaration",
+        "Always Block",
+        "Case Statement",
+        "If Else Statement",
+        "Loop Statement",
+        "Function And Task Definition",
+        "Generate Block",
+        "Interface And Modports",
+        "Assertions",
+        "Package Declaration"
+      ]
+    },
+    "alignmentSettings": {
+      "enableAlignment": true,
+      "allowFor": [
+        "Continuous Assignments",
+        "Port Declarations",
+        "Module Port List",
+        "Variable Declarations",
+        "Parameter Declarations",
+        "Instance Port Connections",
+        "Case Statements",
+        "Assignments In Loops",
+        "Interface Port Declarations",
+        "Struct And Union Declarations",
+        "Interface Modports"
+      ]
+    },
+    "listFormattingSettings": {
+      "portDeclaration": "One Per Line",
+      "moduleInstantiation": "One Per Line",
+      "functionDeclarationArguments": "One Per Line",
+      "interfaceModports": "One Per Line",
+      "structures": "One Per Line",
+      "classConstructorParameters": "One Per Line",
+      "enumValues": "One Per Line",
+      "interfaceSignalDeclarations": "One Per Line",
+      "structDefinitionWithMembers": "One Per Line"
+    }
+  },
+  "vhdlFormattingSettings": {
+    "indentationSettings": {
+      "enableIndentation": true,
+      "indentationStyle": "Spaces",
+      "spacesPerIndent": 4,
+      "allowFor": [
+        "Architecture Body",
+        "Block Statement",
+        "Case Statement",
+        "If Statement",
+        "Loop Statement",
+        "Process Body",
+        "Entity Declaration",
+        "Generic Clause",
+        "Port Map",
+        "Package Body"
+      ]
+    },
+    "alignmentSettings": {
+      "enableAlignment": true,
+      "allowFor": [
+        "Assignment Statements",
+        "Attribute Declarations",
+        "Constant Declarations",
+        "Function Specification Parameters",
+        "Generic Clause And Map Parameters",
+        "Port Clause And Map Parameters",
+        "Signal And Variable Declarations"
+      ]
+    },
+    "listFormattingSettings": {
+      "aggregateElements": "One Per Line",
+      "enumerationTypeDefinitionLiterals": "One Per Line",
+      "functionCallParameters": "One Per Line",
+      "functionSpecificationParameters": "One Per Line",
+      "genericClause": "One Per Line",
+      "genericMap": "One Per Line",
+      "portClause": "One Per Line",
+      "portMap": "One Per Line"
+    },
+    "caseFormattingSettings": {
+      "keywords": "As Is",
+      "types": "As Is"
+    }
+  }
+}

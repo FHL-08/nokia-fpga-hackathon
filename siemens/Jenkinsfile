@@ -1,0 +1,93 @@
+// =============================================================================
+// Jenkinsfile — hackathon submission evaluation.
+//
+// Every push to this repository triggers exactly this pipeline. It runs the
+// same scripts a participant runs locally, so a green local run means a green
+// Jenkins run.
+//
+// AGENT SETUP (must be provided by the Jenkins administrator, not by this
+// repository — the tool paths differ between the hackathon VMs and the Jenkins
+// agents):
+//
+//   QUESTA_BIN   directory containing vsim/vlog/vlib  (QuestaSim install)
+//   QVERIFY_BIN  directory containing qverify         (Questa One SFV install)
+//   LM_LICENSE_FILE / MGLS_LICENSE_FILE  as required by the licence server
+//
+// Configure them as Jenkins global environment variables, as node properties,
+// or as a "Managed tool" — any of the three works, as long as they are set
+// before this pipeline starts. Nothing else about the agent matters: the flow
+// needs bash, python3 and the two tool directories.
+// =============================================================================
+
+pipeline {
+    agent any
+
+    options {
+        timestamps()
+        timeout(time: 30, unit: 'MINUTES')
+        disableConcurrentBuilds()
+    }
+
+    environment {
+        RESULTS_DIR = "${WORKSPACE}/results"
+        WORK_DIR    = "${WORKSPACE}/work"
+    }
+
+    stages {
+        stage('Check environment') {
+            steps {
+                sh '''
+                    set -e
+                    echo "QUESTA_BIN  = ${QUESTA_BIN:-<unset, will autodetect>}"
+                    echo "QVERIFY_BIN = ${QVERIFY_BIN:-<unset, will autodetect>}"
+                    command -v python3
+                    python3 --version
+                '''
+            }
+        }
+
+        stage('Evaluate') {
+            steps {
+                // run_all.sh never aborts on a failing testbench; a partial
+                // submission still produces a score. Only a missing artifact
+                // makes it exit non-zero, and that is reported, not fatal.
+                sh 'bash scripts/run_all.sh || true'
+            }
+        }
+
+        stage('Publish score') {
+            steps {
+                script {
+                    def summary = sh(
+                        script: "sed -n '/===== HACKATHON SCORE SUMMARY =====/,/===== END HACKATHON SCORE SUMMARY =====/p' results/score.txt",
+                        returnStdout: true
+                    ).trim()
+                    echo summary
+
+                    def finalScore = sh(
+                        script: "grep -m1 '^FINAL_SCORE: ' results/score.txt | cut -d' ' -f2",
+                        returnStdout: true
+                    ).trim()
+                    def scoreStatus = sh(
+                        script: "grep -m1 '^SCORE_STATUS: ' results/score.txt | cut -d' ' -f2",
+                        returnStdout: true
+                    ).trim()
+
+                    currentBuild.description = "score ${finalScore} (${scoreStatus})"
+
+                    if (scoreStatus != 'PASS') {
+                        // Unstable, not failed: the build itself is fine, the
+                        // submission simply does not meet the pass threshold.
+                        unstable("SCORE_STATUS=${scoreStatus}, FINAL_SCORE=${finalScore}")
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'results/**', allowEmptyArchive: true, fingerprint: true
+        }
+    }
+}

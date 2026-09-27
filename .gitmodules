@@ -1,0 +1,3 @@
+[submodule "siemens/scripts"]
+	path = siemens/scripts
+	url = https://gitlab.dev.fpgahackathon.com/hackathonfpga_2026/common_scripts.git

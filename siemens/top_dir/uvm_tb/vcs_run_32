@@ -1,0 +1,10 @@
+#!/bin/bash
+
+vcs -sverilog -ntb_opts uvm -quiet -l vcs.log -timescale=1ps/1ps +vcs+lic+wait +vpi \
+    -f top_test_filelist.f \
+    hdl_top.sv \
+    hvl_top.sv \
+    +warn=noUII-L \
+    $AVERY_PLI/linux/lib/libtb_vcs.so -P $AVERY_PLI/linux/src/tb_vcs.tab
+
+./simv +UVM_TESTNAME=top_test_base +SEQ=top_fir_vseq

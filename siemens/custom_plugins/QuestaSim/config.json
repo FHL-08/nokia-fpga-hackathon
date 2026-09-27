@@ -1,0 +1,31 @@
+{
+  "pluginName": "Questasim",
+  "pluginDescription": "Enhanced QuestaSim simulation with comprehensive configuration support",
+  "pluginVersion": "2.0",
+  "commands": [
+    {
+      "commandName": "QuestaSim Simulation",
+      "command": "bash",
+      "arguments": "${PROJECT_DIR}/questasim_script.sh",
+      "compilationOrderFileTemplate": "/home/kimagdy/Desktop/playground/dvt_nokia_hackathon/scripts/custom_plugins/QuestaSim/template_qopt_qsim_script.sh",
+      "compilationOrderFilePath": "${PROJECT_DIR}/questasim_script.sh",
+      "workingDirectory": "${PROJECT_DIR}",
+      "description": "Run QuestaSim simulation (flow controlled by QUESTA_FLOW_MODE or QUESTA_ENABLE_TWO_STEP env vars)",
+      "environmentVariables": [
+        {
+          "variable": "AVERY_AXI",
+          "value": "/u/release/avery/2026.1_1/vip/aaxivip-2026.1_1"
+        },
+        {
+          "variable": "AVERY_SIM",
+          "value": "/u/release/avery/2026.1_1/vip/avery_sim-2026.1_1"
+        },
+        {
+          "variable": "AVERY_PLI",
+          "value": "/u/release/avery/2026.1_1/vip/avery_pli-2026.1_1"
+        }
+      ]
+    }
+  ]
+  
+}

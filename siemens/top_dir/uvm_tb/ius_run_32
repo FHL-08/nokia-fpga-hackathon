@@ -1,0 +1,10 @@
+#!/bin/bash
+
+xrun -sv -uvm -quiet \
+    -f top_test_filelist.f \
+    hdl_top.sv \
+    hvl_top.sv \
+    +loadpli1=$AVERY_PLI/linux/lib/libtb_xm.so:wizard_bootstrap \
+    -licqueue \
+    +UVM_TESTNAME=top_test_base \
+    +SEQ=top_fir_vseq

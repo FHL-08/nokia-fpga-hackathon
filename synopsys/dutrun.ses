@@ -1,0 +1,101 @@
+@verdi rc file Version 1.0
+[General]
+saveDB = FALSE
+relativePath = FALSE
+saveSingleView = FALSE
+saveNWaveWinId = 4
+VerdiVersion = Verdi_X-2025.06-SP2-1
+[KeyNote]
+Line1 = invoke directory: /global/gtseu06/user/shepo/frame_extender/verilog/build_hack_v4enc
+Line2 = command line: -elab ./work/simdir/simv.daidir/kdb.elab++ -ba 
+Line3 = current trace scope: tb_serial_frame_extender
+Line4 = memo:
+Line5 = Save Open Database Information: No
+Line6 = Path Option: Absolute Paths
+Line7 = Windows Option: All Windows
+[OneSearch]
+isExisted = TRUE
+[TestBench]
+ConstrViewShow = 0
+InherViewShow = 0
+FSDBMsgShow = 0
+AnnotationShow = 0
+DeclViewShow = 0
+Console = TRUE
+powerDumped = 0
+[fusa]
+fdb_server = 
+fdb_proj = 
+fdb_campaign = 
+fdb_tool = All Tools
+[hb]
+postSimFile = /global/gtseu06/user/shepo/frame_extender/verilog/build_hack_v4enc/inter.fsdb
+syncTime = 0
+viewport = 394 101 1651 1022 0 0 293 898
+activeNode = "tb_serial_frame_extender"
+activeScope = "tb_serial_frame_extender"
+activeFile = "tb/tb_serial_frame_extender_top.sv"
+interactiveMode = False
+viewType = Source
+simulatorMode = False
+sourceBeginLine = 3
+baMode = False
+srcLineNum = True
+AutoWrap = True
+IdentifyFalseLogic = False
+syncSignal = False
+traceMode = Hierarchical
+showTraceInSchema = True
+paMode = False
+funcMode = False
+powerAwareAnnot = True
+safetyAwareAnnot = True
+amsAnnot = True
+DnDtraceCrossHierOnly = True
+leadingZero = False
+signalPane = True
+SourceVerticalScrollLines = 5
+Scope1 = "tb_serial_frame_extender"
+Scope2 = "tb_serial_frame_extender.dut"
+multipleSelection = 1 6 3 0 0
+sdfCheckUndef = FALSE
+simFlow = FALSE
+[hb.design]
+importCmd = "-simflow" "-dbdir" "./work/simdir/simv.daidir" 
+invokeDir = /global/gtseu06/user/shepo/frame_extender/verilog/build_hack_v4enc
+[hb.sourceTab.1]
+scope = tb_serial_frame_extender
+File = /global/gtseu06/user/shepo/frame_extender/verilog/build_hack_v4enc/tb/tb_serial_frame_extender_top.sv
+Line = 4
+[nMemoryManager]
+WaveformFile = /global/gtseu06/user/shepo/frame_extender/verilog/build_hack_v4enc/inter.fsdb
+UserActionNum = 0
+nMemWindowNum = 0
+[wave.0]
+viewPort = 0 11 1097 411 144 50
+primaryWindow = TRUE
+SessionFile = /global/gtseu06/user/shepo/frame_extender/verilog/build_hack_v4enc/dutrun.ses.wave.0
+displayGrid = FALSE
+hierarchicalName = FALSE
+waveformToolTip = FALSE
+snap = TRUE
+displayLeadingZeros = FALSE
+displayGridLine = FALSE
+fixDelta = FALSE
+displayCursorMarker = FALSE
+autoUpdate = FALSE
+highlightGlitchs = FALSE
+waveformSyncCursorMarker = FALSE
+waveformSyncHorizontalRange = FALSE
+waveformSyncVerticalscroll = FALSE
+displayErrors = TRUE
+displayMsgSymbols = TRUE
+showMsgDescriptions = TRUE
+autoFit = FALSE
+displayDeltaY = FALSE
+centerCursor = FALSE
+fsaRegMask = TRUE
+fsaCoreMask = TRUE
+fsaSfsmMask = TRUE
+fsaEcrMask = TRUE
+tPropMask = TRUE

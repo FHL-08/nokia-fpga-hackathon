@@ -1,0 +1,18 @@
+#!/bin/sh
+# Fixed entry point for interactive Verdi debug (participants only).
+# Do not modify this file. Put DUT analyze commands in compiledut.
+
+rm -rf ucli.key verdiLog inter.fsdb novas_dump.log novas.conf novas.rc sysBusyP* sim.log \
+  compile_dut.log compile_svlog_enc.log compile_svlog_top.log work/*
+mkdir -p work
+mkdir -p work/simdir
+
+# Analyze DUT sources (participant-maintained)
+. ./compiledut
+
+# Analyze encrypted testbench and TB top, then elaborate and open Verdi
+vlogan -full64 -sverilog -kdb -l compile_svlog_enc.log tbdir/tb_serial_frame_extender_sub.sv.e
+vlogan -full64 -sverilog -kdb -l compile_svlog_top.log tb/tb_serial_frame_extender_top.sv
+vcs -o work/simdir/simv -Mdir=work/simdir/csrc -full64 -sverilog -kdb -debug_access+all -pvalue+tb_serial_frame_extender.tb.FRAMES=200 tb_serial_frame_extender
+#./work/simdir/simv -l sim.log -verdi -verdi_opts "-sswr dutio_wave.rc"
+./work/simdir/simv -l sim.log -verdi -verdi_opts "-ssr dutrun.ses"

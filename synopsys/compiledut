@@ -1,0 +1,11 @@
+# Participant-maintained DUT analyze commands.
+# Edit this file when you add, rename, or move DUT sources.
+# Paths are relative to the directory from which runbatch / rungui is executed.
+# List dependent modules in a valid compile order.
+# Uncomment and adapt one of the examples below (or mix VHDL + Verilog lines).
+
+# Example: VHDL
+# vhdlan -full64 -kdb -work work -vhdl08 -nc -l compile_dut.log vhdl/frame_extender.vhd
+
+# Example: Verilog/SystemVerilog
+vlogan -full64 -sverilog -kdb -nc -l compile_dut.log verilog/serial_frame_extender.sv

@@ -1,0 +1,1 @@
+/wv/syntools/pnr/xilinx/vivado/2019.2/ixl-x64/Vivado/2019.2/bin/vivado -mode batch -source /home/kimagdy/Desktop/playground/dvt_nokia_hackathon/hackathon_exercise/fir_filter_project/Plugins/Vivado/vivado_import.tcl 
